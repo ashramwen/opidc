@@ -79,10 +79,18 @@ a:hover {
 	text-align: center;
 }
 
+.login-box.lg {
+	max-width: 960px;
+}
+
 .login-box .box-header {
 	background-color: #665851;
 	margin-top: 0;
 	border-radius: 5px 5px 0 0;
+}
+.login-box .box-body {
+	padding: 20px;
+	text-align: left;
 }
 
 .login-box label {
@@ -153,4 +161,34 @@ a:hover {
 
 .hide {
 	display: none !important;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+.left {
+	float: left;
+	width: 45%;
+	padding:10px;
+}
+.right {
+	float: right;
+	width: 45%;
+	padding:10px;
+}
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1; /*For IE 6&7 only*/
 }
