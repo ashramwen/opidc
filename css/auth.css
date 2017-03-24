@@ -5,6 +5,7 @@ ul.check-list {
 
 ul.check-list li {
     margin: 0;
+    margin-bottom: 18px;
     border: none;
     font-weight: 300;
     padding: 6px 0;
@@ -36,17 +37,17 @@ ul.check-list li {
     margin: 0;
 }
 
-.todo-checkbox>input:checked+span:before {
+.todo-checkbox>input:checked+div:before {
     content: '\f00c';
 }
 
-.todo-checkbox>input[type="radio"]:checked+span:before {
+.todo-checkbox>input[type="radio"]:checked+div:before {
     content: '\f192';
 }
 
-.todo-checkbox>span {
+.todo-checkbox>div.noselect {
     white-space: nowrap;
-    height: 16px;
+    /*height: 16px;*/
     position: relative;
     display: inline-block;
     margin: 0;
@@ -59,7 +60,9 @@ ul.check-list li {
     text-overflow: ellipsis;
 }
 
-.todo-checkbox>span:before {
+.todo-checkbox>div.noselect:before {
+    float: left;
+    /*display: inline-block;*/
     color: #888;
     content: '\f10c';
     transition: none;
@@ -69,7 +72,6 @@ ul.check-list li {
     font-size: 12px;
     background-color: transparent;
     border-radius: 0;
-    display: inline-block;
     text-align: center;
     height: 16px;
     line-height: 14px;
@@ -87,4 +89,25 @@ ul.check-list li {
     border-radius: 4px;
     width: 400px;
     height: 100px;
+}
+
+.text {
+    /*margin-left: 10px;*/
+    /*width: 280px;*/
+    white-space: pre-wrap;
+}
+
+.contact {
+    height: 16px;
+    line-height: 16px;
+    margin-bottom: 10px;
+}
+
+.contact span {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.login-box label {
+    text-transform: initial;
 }
