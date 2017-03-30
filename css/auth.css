@@ -98,7 +98,6 @@ ul.check-list li {
 }
 
 .contact {
-    height: 16px;
     line-height: 16px;
     margin-bottom: 10px;
 }
@@ -110,4 +109,29 @@ ul.check-list li {
 
 .login-box label {
     text-transform: initial;
+}
+
+.fa {
+    width: 16px;
+}
+
+.more {
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.more-info {
+    padding-left: 18px;
+}
+
+.approve {
+    margin-top: 20px;
+}
+
+.fa-chevron-right+.more-info {
+    height: 0;
+}
+
+.fa-chevron-down+.more-info {
+    height: auto;
 }

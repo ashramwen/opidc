@@ -1,18 +1,19 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8">
     <title>Simple Login Page</title>
 
-    <meta name="_csrf" th:content="${_csrf.token}" />
-    <meta name="_csrf_header" th:content="${_csrf.headerName}" />
+    <meta name="_csrf" content="82bcaffc-a789-4e21-abde-c80c32fc289e">
+    <meta name="_csrf_header" content="X-CSRF-TOKEN">
 
     <!-- Google Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet'
-        type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900" rel="stylesheet"
+        type="text/css">
 
+    <link rel="stylesheet" href="css/grids-responsive-min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/auth.css">
@@ -22,46 +23,125 @@
 
 <body>
     <div class="container">
-        <div class="top">
-            <h1 id="title" class="hidden"><span id="logo">Auth</span></h1>
-        </div>
-        <div class="login-box animated fadeInUp">
-            <div class="box-header">
-                <h2>List</h2>
-            </div>
-            <ul class="check-list">
-                <li>
-                    <label class="todo-checkbox">
-                        <input type="checkbox" checked>
-                        <span class="cut-with-dots">Check me out</span>
-                    </label>
-                </li>
-                <li>
-                    <label class="todo-checkbox">
-                        <input type="checkbox" checked>
-                        <span class="cut-with-dots">Lorem ipsum.</span>
-                    </label>
-                </li>
-                <li>
-                    <label class="todo-checkbox">
-                        <input type="checkbox">
-                        <span class="cut-with-dots">Simul erroribus ad usu</span>
-                    </label>
-                </li>
-                <li>
-                    <label class="todo-checkbox">
-                        <input type="checkbox">
-                        <span class="cut-with-dots">Get in touch with akveo team</span>
-                    </label>
-                </li>
-            </ul>
-            <button type="button">Approve</button>
-            <button type="button">Reject</button>
+        <div class="login-box lg animated fadeInUp">
+            <form method="post" action="/opidc-server/authorize">
+                <div class="box-header">
+                    <h2>Approval Required for <span>Simple Web App</span></h2>
+                </div>
+                <div class="box-body clearfix">
+                    <div class="box left">
+                        <div class="caution">
+                            <h3>Client Description:</h3>
+                            <div>Demo App</div>
+                        </div>
+                        <div class="contact">
+                            <div class="more noselect"><i class="fa fa-chevron-right" aria-hidden="true"></i> <span>contact information</span></div>
+                            <div class="more-info" style="display:none">Administrator: hello there</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="approve">You will be redirected to the following page if you click Approve:</div>
+                        <div><a href="http://localhost:9090/web-mvc/opidcCallback">http://localhost:9090/web-mvc/opidcCallback</a></div>
+                    </div>
+                    <div class="box right">
+                         <div class="clearfix">
+                        <h3>Access To:</h3>
+                        <ul class="check-list">
+                            <li>
+                                <label class="todo-checkbox">
+                                    <input type="checkbox" checked="checked" name="scope_email" value="email">
+                                    <div class="noselect">
+                                        <div>OpenID:</div>
+                                        <div class="text">Log in using your identity</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="todo-checkbox">
+                                    <input type="checkbox" checked="checked" name="scope_offline_access" value="offline_access">
+                                    <div class="noselect">
+                                        <div>Profile:</div>
+                                        <div class="text">Basic profile information</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="todo-checkbox">
+                                    <input type="checkbox" checked="checked" name="scope_openid" value="openid">
+                                    <div class="noselect">
+                                        <div>Email:</div>
+                                        <div class="text">aaaa@abc.com</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="todo-checkbox">
+                                    <input type="checkbox" checked="checked" name="scope_profile" value="profile">
+                                    <div class="noselect">
+                                        <div>Offline Access:</div>
+                                        <div class="text">Enables access to Claims when the user is not present and an OAuth 2.0 Refresh Token will be issued</div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="clearfix">
+                            <h3>Remember this decision:</h3>
+                            <ul class="check-list">
+                                <li>
+                                    <label class="todo-checkbox">
+                                    <input type="radio" name="rdoGroup" value="openid" checked="checked">
+                                    <div class="noselect">
+                                        <div>Profile:</div>
+                                        <div class="text">Basic profile information</div>
+                                    </div>
+                                </label>
+                                </li>
+                                <li>
+                                    <label class="todo-checkbox">
+                                    <input type="radio" name="rdoGroup" value="profile">
+                                    <div class="noselect">
+                                        <div>Profile:</div>
+                                        <div class="text">Basic profile information</div>
+                                    </div>
+                                </label>
+                                </li>
+                                <li>
+                                    <label class="todo-checkbox">
+                                    <input type="radio" name="rdoGroup" value="email">
+                                    <div class="noselect">
+                                        <div>Offline Access:</div>
+                                        <div class="text">Enables access to Claims when the user is not present and an OAuth 2.0 Refresh Token will be issued</div>
+                                    </div>
+                                </label>
+                                </li>
+                                <li>
+                                    <label class="todo-checkbox">
+                                    <input type="radio" name="rdoGroup" value="offline_access">
+                                    <div class="noselect">
+                                        <div>Profile:</div>
+                                        <div class="text">Basic profile information</div>
+                                    </div>
+                                </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <h3>Do you authorize "<span>Simple Web App</span> at <span>http://localhost:9090/web-mvc</span>"?</h3>
+                <button type="submit" name="user_oauth_approval" value="true">Approve</button>
+                <button type="submit" name="user_oauth_approval" value="false">Deny</button>
+                <input type="hidden" name="_csrf" value="82bcaffc-a789-4e21-abde-c80c32fc289e"></form>
         </div>
     </div>
 </body>
-
 <script>
+    var $fa = $('.more .fa');
+    var $moreInfo = $('.more-info');
+    $('.more').click(function () {
+        $fa.toggleClass('fa-chevron-right');
+        $fa.toggleClass('fa-chevron-down');
+        $moreInfo.slideToggle();
+    });
 </script>
 
 </html>
