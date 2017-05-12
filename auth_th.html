@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Open ID Connect</title>
+
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/initial.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/control.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+</head>
+
+<body>
+    <main>
+        <div class="additional-bg"></div>
+        <div class="al-content container-fluid">
+            <div class="row mt80">
+                <div class="col-xs-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2">
+                    <form th:action="@{/authorize}" method="post">
+                    <div class="animated fadeIn card with-scroll text-center">
+                        <div class="card-header clearfix" ng-reflect-class-base="card-header clearfix">
+                            <h3 class="card-title" translate="" ng-reflect-translate="" ng-reflect-class-base="card-title">Approval Required For Internal OAuth Client</h3>
+                        </div>
+                        <div class="card-body" ng-reflect-class-base="card-body">
+                            <div class="row text-left content">
+                                <div class="hidden-md-down col-lg-6">
+                                    <div class="banner">
+                                        <h1>Client Description:</h1>
+                                        <p th:text="${client.clientDescription}"></p>
+                                    </div>
+                                    <div class="info">
+                                        <h3><i aria-hidden="true" class="fa fa-info-circle"></i> contact information</h3>
+                                        <ul class="list-unstyled">
+                                            <li th:each="mail : ${client.contacts}"><a th:href="'mailto:' + ${mail}" th:text="${mail}"></a></li>
+                                        </ul>
+                                        <h4>You will be redirected to the following page if you click Approve:</h4>
+                                        <h4 th:each="url : ${client.redirectUris}"><a th:text="${url}" th:href="${url}"></a></h4>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 right">
+                                    <div class="subject">
+                                        <h3>Access to:</h3>
+                                        <ul class="list-unstyled">
+                                            <li th:each="scope : ${scopes}">
+                                                <label class="custom-checkbox nowrap">
+                                                    <input type="checkbox" th:name="${#strings.append('scope_' , scope.value)}" th:value="${scope.value}" checked="checked"/>
+                                                    <span th:text="${scope.value} + ((${scope.description} != null) ? ':' : '')"></span>
+                                                </label>
+                                                <div th:if="${scope.description} != null" th:text="${scope.description}"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="subject">
+                                        <h3>Remember this decision:</h3>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <label class="radio-inline custom-radio nowrap">
+                                                    <input type="radio" name="remember" value="until-revoked" checked="checked"/>
+                                                    <span>Remember this decision until I revoke it</span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="radio-inline custom-radio nowrap">
+                                                    <input type="radio" name="remember" value="one-hour"/>
+                                                    <span>Remember this decision for one hour</span>
+                                                </label>
+                                            </li>
+                                            <li>
+                                                <label class="radio-inline custom-radio nowrap">
+                                                    <input type="radio" name="remember" value="none"/>
+                                                    <span>Prompt me again next time</span>
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-10 col-md-12">
+                                    <h2 th:text="'Do you authorize &quot;' + ${client.clientName} + ((${client.clientUri} != null) ? '&quot; at ' + ${client.clientUri} : '&quot;') + '?'"></h2>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-xs-12 col-sm-10 col-md-12">
+                                    <button class="btn btn-primary" type="submit" name="user_oauth_approval" value="true">Approve</button>
+                                    <button class="btn btn-default" type="submit" name="user_oauth_approval" value="false">Deny</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+
+</html>
