@@ -1,249 +1,55 @@
-body {
-    background: url("../images/photo_bg.jpg") no-repeat center center fixed;
-    background-size: cover;
-    font-size: 16px;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    margin: 0;
-    color: #666;
-    /*overflow: hidden;*/
-}
-
-h2 {
-    text-transform: uppercase;
-    color: white;
-    font-weight: 400;
-    letter-spacing: 1px;
-    font-size: 1.4em;
-    line-height: 2.8em;
-    margin: 0;
-}
-
-.login-box {
-    background-color: white;
-    padding: 0;
-    position: relative;
-    top: 80px;
-    padding-bottom: 30px;
-    border-radius: 5px;
-    box-shadow: 0 5px 50px rgba(0, 0, 0, 0.4);
-    text-align: center;
-    -webkit-animation-duration: 1s;
-    -webkit-animation-delay: 1s;
-}
-
-.login-box .box-header {
-    background-color: #665851;
-    margin-top: 0;
-    border-radius: 5px 5px 0 0;
-}
-
-.login-box .box-body {
-    padding: 20px;
-    text-align: left;
-}
-
-.login-box label {
-    font-weight: 700;
-    font-size: .8em;
-    color: #888;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    line-height: 2em;
-}
-
-.login-box input {
-    margin-bottom: 20px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    font-size: .9em;
-    color: #888;
-}
-
-.login-box input:focus {
-    outline: none;
-    border-color: #665851;
-    transition: 0.5s;
-    color: #665851;
-}
-
-.login-box button {
-    margin-top: 0px;
-    border: 0;
-    border-radius: 2px;
-    color: white;
-    padding: 10px;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 0.7em;
-    letter-spacing: 1px;
-    background-color: #665851;
-    cursor: pointer;
-    outline: none;
-}
-
-.login-box button:hover {
-    opacity: 0.7;
-    transition: 0.5s;
-}
-
-.login-box button:hover {
-    opacity: 0.7;
-    transition: 0.5s;
-}
-
-h3 {
-    margin-top: 0;
-}
-
-.wrap {
+.row {
     margin-bottom: 20px;
 }
 
-ul.check-list {
-    margin: 0;
-    padding: 0;
+.mt80 {
+    margin-top: 80px;
 }
 
-ul.check-list li {
-    margin: 0;
-    border: none;
-    font-weight: 300;
-    padding: 6px 0;
-    list-style: none;
-    position: relative;
-    line-height: 18px;
-    text-align: left;
+.content {
+    margin-bottom: 20px;
 }
 
-.todo-checkbox {
-    width: 100%;
-    padding-right: 25px;
-    min-height: 16px;
-    cursor: pointer;
-    padding-left: 0;
-    margin-bottom: 0;
-    display: inline-block;
-}
-
-.todo-checkbox>input {
-    height: 0;
-    z-index: -100 !important;
-    opacity: 0;
-    position: absolute;
-    box-sizing: border-box;
-    padding: 0;
-    overflow: visible;
-    margin: 0;
-}
-
-.todo-checkbox>input:checked+div:before {
-    content: '\f00c';
-}
-
-.todo-checkbox>input[type="radio"]:checked+div:before {
-    content: '\f192';
-}
-
-.todo-checkbox>div.noselect {
-    white-space: nowrap;
-    /*height: 16px;*/
-    position: relative;
-    display: inline-block;
-    margin: 0;
-    line-height: 16px;
-    font-weight: 300;
-    cursor: pointer;
-    padding-left: 22px;
+.banner {
+    padding: 25px 10px;
     width: 100%;
     overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.todo-checkbox>div.noselect:before {
-    float: left;
-    /*display: inline-block;*/
-    color: #888;
-    content: '\f10c';
-    transition: none;
-    cursor: pointer;
-    font-family: fontAwesome;
-    font-weight: 300;
-    font-size: 12px;
-    background-color: transparent;
-    border-radius: 0;
-    text-align: center;
-    height: 16px;
-    line-height: 14px;
-    min-width: 16px;
-    margin-right: 6px;
-    position: relative;
-    top: 0;
-    margin-left: -22px;
-}
-
-.caution {
+    background-color: rgba(0, 0, 0, 0.7);
     margin-bottom: 20px;
-    padding: 10px;
-    border: 4px solid #665851;
-    border-radius: 4px;
+}
+
+.banner h1 {
+    font-weight: 700;
     width: 100%;
-    height: 100px;
-}
-
-.text {
-    /*margin-left: 10px;*/
-    /*width: 280px;*/
-    white-space: pre-wrap;
-}
-
-.contact {
-    line-height: 16px;
+    color: #fff;
+    margin: 0;
     margin-bottom: 10px;
+    text-align: left;
 }
 
-.contact span {
+.banner p {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 300;
+    color: #00abff;
+    margin-bottom: 0px;
+}
+
+.info ul {
+    padding-left: 22px;
+    margin-bottom: 40px;
+}
+
+.right li {
+    margin: 10px 0;
     font-size: 14px;
-    color: #aaa;
+    line-height: 16px;
 }
 
-.login-box label {
-    text-transform: initial;
+.right li div {
+    padding: 5px 22px;
 }
 
-.fa {
-    width: 16px;
-}
-
-.more {
-    cursor: pointer;
-    margin-bottom: 5px;
-}
-
-.more-info {
-    padding-left: 18px;
-}
-
-.approve {
-    margin-top: 20px;
-}
-
-.fa-chevron-right+.more-info {
-    height: 0;
-}
-
-.fa-chevron-down+.more-info {
-    height: auto;
-}
-
-.box {
-    width: 45%;
-    padding: 10px;
-}
-
-@media (max-width:991px) {
-    .box {
-        width: 100%;
-    }
+.right .subject {
+    margin-bottom: 40px;
 }
